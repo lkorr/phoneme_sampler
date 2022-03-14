@@ -25,8 +25,8 @@ for root, dirs, files in os.walk(path):
 print(filelist)
 
 def vocals_to_midi(sample, emission, topk, exponent, episodes):
-    tempo = 10000
-    tpb = 1
+    tempo = 1000000
+    tpb = 100
     phonemes = []
     times = [0]
     model = read_recognizer()
@@ -47,6 +47,7 @@ def vocals_to_midi(sample, emission, topk, exponent, episodes):
     for i in range(len(token)):
         phonemes += [token[i].split(' ')[2]]
         times +=  [float(token[i].split(' ')[0])]
+    print(times)
 
     for episode in range(episodes):
         for i in range(len((all_prob_tokens))):
